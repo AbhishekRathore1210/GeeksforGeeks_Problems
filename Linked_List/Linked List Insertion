@@ -1,0 +1,37 @@
+
+
+class Solution{
+  public:
+    //Function to insert a node at the beginning of the linked list.
+    Node *insertAtBegining(Node *head, int x) {
+       // Your code here
+       Node* nd=new Node(x);
+       if(head==NULL){
+           head=nd;
+       }
+       else{
+       nd->next=head;
+       head=nd;
+       return head;
+       }
+    }
+    
+    
+    //Function to insert a node at the end of the linked list.
+    Node *insertAtEnd(Node *head, int x)  {
+        Node* last=head;
+        Node* nd=new Node(x);
+        if(head==NULL){
+            head=nd;
+            last=nd;
+        }
+        else{
+            while(last->next!=NULL){
+                last=last->next;
+            }
+            last->next=nd;
+        }
+        return head;
+       // Your code here
+    }
+};
