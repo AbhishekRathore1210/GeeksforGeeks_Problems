@@ -1,0 +1,20 @@
+
+Pairwise swap elements of a linked list
+
+solution:->
+
+ Node* pairWiseSwap(struct Node* head) 
+    {
+        if(head == NULL || head->next == NULL) return head; // if linked list has 0 or 1 element 
+        Node * ans = head->next; // final ans
+        Node * temp = NULL;
+        Node * next;
+        while(head && head->next){
+            next = head->next->next;    
+            head->next->next = head;
+            if(next && next->next)head->next = next->next;
+            else head->next = next;
+            head = next;
+        }
+        return ans;
+    }
